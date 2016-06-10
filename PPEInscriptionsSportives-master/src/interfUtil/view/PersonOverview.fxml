@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfUtil.view.PersonOverviewController">
+   <children>
+      <TabPane layoutX="61.0" layoutY="50.0" prefHeight="450.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Compétition">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.44543429844098" layoutX="73.0" layoutY="77.0" prefHeight="421.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <TableView fx:id="competitions" layoutX="-14.0" prefHeight="419.0" prefWidth="397.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn fx:id="nomc" prefWidth="75.0" text="Nom" />
+                                        <TableColumn fx:id="datecloture" prefWidth="75.0" text="Date de Cloture" />
+                                          <TableColumn fx:id="nbrCandidat" prefWidth="75.0" text="Nbr de Candidat" />
+                                          <TableColumn fx:id="enEquipe" prefWidth="75.0" text="En equipe" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.26139088729016785" layoutX="160.0" layoutY="73.0" orientation="VERTICAL" prefHeight="419.0" prefWidth="495.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                             <children>
+                                                <GridPane prefHeight="106.0" prefWidth="493.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="59.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="154.0" minWidth="10.0" prefWidth="147.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="171.0" minWidth="10.0" prefWidth="160.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="91.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="163.0" text="Creer Competitions:" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                                                         <font>
+                                                            <Font name="System Bold" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label text="Nom  " GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                                      <TextField fx:id="nomcompet" onKeyReleased="#verifChampComplet" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                      <DatePicker fx:id="dtePicker" onAction="#verifChampComplet" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                      <Label text="Date  " GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                                      <CheckBox fx:id="enEquipeCB" mnemonicParsing="false" text="En équipe" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                                      <Button fx:id="creerCompet" mnemonicParsing="false" onAction="#handleCreerCompetition" text="Creer" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                                   </children>
+                                                </GridPane>
+                                             </children></AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                             <children>
+                                                <GridPane prefHeight="305.0" prefWidth="493.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.0" minWidth="10.0" prefWidth="247.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.0" minWidth="10.0" prefWidth="247.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="328.0" minWidth="10.0" prefWidth="246.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                      <RowConstraints maxHeight="87.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints maxHeight="87.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="122.0" minHeight="0.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="248.0" minHeight="0.0" prefHeight="248.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <TableView fx:id="equipeAInscrire" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+                                                        <columns>
+                                                          <TableColumn fx:id="nomEAI" prefWidth="75.0" text="Les candidats disponible" />
+                                                        </columns>
+                                                         <columnResizePolicy>
+                                                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                         </columnResizePolicy>
+                                                      </TableView>
+                                                      <Button fx:id="inscrire" mnemonicParsing="false" onAction="#handleInscrireCompetCandidat" text="Inscrire" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                                      <Label text="Inscrire Equipe" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                      <Label text="Desinscrire Equipe" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                      <TableView fx:id="equipeInscrite" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                        <columns>
+                                                          <TableColumn fx:id="nomEI" prefWidth="75.0" text="Les candidats inscrit" />
+                                                        </columns>
+                                                         <columnResizePolicy>
+                                                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                         </columnResizePolicy>
+                                                      </TableView>
+                                                      <Button fx:id="desinscrire" mnemonicParsing="false" onAction="#handleDesinscrireCompetCandidat" text="Desinscrire" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                                                      <Button fx:id="supprimCompet" mnemonicParsing="false" onAction="#handleSuppression" text="SUPPRIMER COMPETITION" textFill="RED" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                                         <font>
+                                                            <Font name="System Bold" size="11.0" />
+                                                         </font>
+                                                      </Button>
+                                                      <Label text="Changer Date  " GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                                      <DatePicker fx:id="dtePickerSet" onAction="#handleDatePicked" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                      <Button fx:id="changerDate" mnemonicParsing="false" onAction="#handleChangementDate" text="Appliquer Date" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="10.0" />
+                                                         </GridPane.margin>
+                                                      </Button>
+                                                      <Label text="Gerer Competitions:" GridPane.columnIndex="1">
+                                                         <font>
+                                                            <Font name="System Bold" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Button fx:id="mailCompet" mnemonicParsing="false" onAction="#handleMailCompet" text="Mail" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                   </children>
+                                                </GridPane>
+                                             </children></AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Equipe">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.3975501113585746" layoutX="117.0" layoutY="56.0" prefHeight="271.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <TableView fx:id="equipes" prefHeight="419.0" prefWidth="235.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columns>
+                                          <TableColumn fx:id="nome" prefWidth="75.0" text="Nom" />
+                                          <TableColumn fx:id="nbrMembres" prefWidth="75.0" text="Nbr Membres" />
+                                          <TableColumn fx:id="nbrCompetition" prefWidth="75.0" text="Nbr de Competition" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.1774580335731415" layoutX="112.0" layoutY="79.0" orientation="VERTICAL" prefHeight="419.0" prefWidth="557.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                             <children>
+                                                <GridPane layoutX="80.0" layoutY="6.0" prefHeight="71.0" prefWidth="536.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <Label text="Creer Equipe:" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                                                         <font>
+                                                            <Font name="System Bold" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label text="Nom  " GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                                      <TextField fx:id="nomEquipe" onKeyReleased="#toggleCreerEquipe" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                      <Button fx:id="creerEquipe" mnemonicParsing="false" onAction="#handleCreateEquipe" text="Creer" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                                   </children>
+                                                </GridPane>
+                                             </children></AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                             <children>
+                                                <GridPane layoutX="86.0" layoutY="57.0" prefHeight="340.0" prefWidth="536.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="372.0" minWidth="10.0" prefWidth="372.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="164.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                      <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints maxHeight="331.0" minHeight="10.0" prefHeight="312.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="2">
+                                                        <tabs>
+                                                          <Tab text="Gerer Compétition">
+                                                               <content>
+                                                                  <GridPane>
+                                                                    <columnConstraints>
+                                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                      <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="13.0" vgrow="SOMETIMES" />
+                                                                      <RowConstraints maxHeight="221.0" minHeight="10.0" prefHeight="221.0" vgrow="SOMETIMES" />
+                                                                      <RowConstraints maxHeight="56.0" minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                                                                    </rowConstraints>
+                                                                     <children>
+                                                                        <TableView fx:id="competitionDisponible" onSort="#handleInscrireCompetEquipe" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                                                          <columns>
+                                                                            <TableColumn fx:id="nomCD" prefWidth="75.0" text="Competitons dispo" />
+                                                                          </columns>
+                                                                           <columnResizePolicy>
+                                                                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                                           </columnResizePolicy>
+                                                                        </TableView>
+                                                                        <Label text="Inscrire a une Compétition" GridPane.halignment="CENTER" />
+                                                                        <Button fx:id="inscrireCompet" mnemonicParsing="false" onAction="#handleInscrireCompetEquipe" text="Inscrire" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                                        <Label text="Desinscrire" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                                                        <Button fx:id="desinscrireCompet" mnemonicParsing="false" onAction="#handleDesinscrireCompetEquipe" text="Desinscrire" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                                        <TableView fx:id="competitionParticipe" onSort="#handleDesinscrireCompetEquipe" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                          <columns>
+                                                                            <TableColumn fx:id="nomCP" prefWidth="75.0" text="Competition participé" />
+                                                                          </columns>
+                                                                           <columnResizePolicy>
+                                                                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                                           </columnResizePolicy>
+                                                                        </TableView>
+                                                                     </children>
+                                                                  </GridPane>
+                                                               </content>
+                                                            </Tab>
+                                                          <Tab text="Gerer membre">
+                                                               <content>
+                                                                  <GridPane>
+                                                                    <columnConstraints>
+                                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                      <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                                                                      <RowConstraints maxHeight="216.0" minHeight="10.0" prefHeight="216.0" vgrow="SOMETIMES" />
+                                                                      <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="13.0" vgrow="SOMETIMES" />
+                                                                    </rowConstraints>
+                                                                     <children>
+                                                                        <Label text="Inscrire Membre" GridPane.halignment="CENTER" />
+                                                                        <Label text="Desinscrire Membre" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                                                        <TableView fx:id="personneDisponible" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                                                          <columns>
+                                                                            <TableColumn fx:id="nomPD" prefWidth="75.0" text="Membre Dispo" />
+                                                                          </columns>
+                                                                           <columnResizePolicy>
+                                                                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                                           </columnResizePolicy>
+                                                                        </TableView>
+                                                                        <TableView fx:id="personneMembre" onSort="#handleDesinscrireMembreEquipe" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                          <columns>
+                                                                            <TableColumn fx:id="nomPM" prefWidth="75.0" text="Membre inscrit" />
+                                                                          </columns>
+                                                                           <columnResizePolicy>
+                                                                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                                           </columnResizePolicy>
+                                                                        </TableView>
+                                                                        <Button fx:id="inscrirePersonne" mnemonicParsing="false" onAction="#handleInscrireMembreEquipe" text="Inscrire" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                                        <Button fx:id="desinscrirePersonne" mnemonicParsing="false" onAction="#handleDesinscrireMembreEquipe" text="Desinscrire" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                                     </children>
+                                                                  </GridPane>
+                                                               </content>
+                                                            </Tab>
+                                                        </tabs>
+                                                      </TabPane>
+                                                      <Label text="Gerer Equipe:" GridPane.halignment="CENTER">
+                                                         <font>
+                                                            <Font name="System Bold" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="nomEquipeNew" maxWidth="200.0" onKeyReleased="#toggleChangerEquipe" prefHeight="25.0" prefWidth="165.0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                                      <Label text="Nom" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets right="110.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <Button fx:id="appliquerNomB" mnemonicParsing="false" onAction="#handleChangerNomEquipe" text="Appliquer Nom" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="5.0" />
+                                                         </GridPane.margin>
+                                                      </Button>
+                                                      <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                        <columnConstraints>
+                                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="76.0" />
+                                                        </columnConstraints>
+                                                        <rowConstraints>
+                                                          <RowConstraints maxHeight="149.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+                                                          <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                          <RowConstraints maxHeight="113.0" minHeight="10.0" prefHeight="113.0" vgrow="SOMETIMES" />
+                                                        </rowConstraints>
+                                                         <children>
+                                                            <Button fx:id="mailEquipe" mnemonicParsing="false" onAction="#handleMailEquipe" text="Mail" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                                            <Button fx:id="supprimerEquipe" mnemonicParsing="false" onAction="#handleSupprimerEquipe" text="Supprimer Equipe" textFill="RED" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </GridPane>
+                                                   </children>
+                                                </GridPane>
+                                             </children></AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Personne">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5022271714922049" layoutX="63.0" prefHeight="421.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <TableView fx:id="personnes" layoutX="-39.0" layoutY="-14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn fx:id="prenom" prefWidth="75.0" text="Prenom" />
+                                        <TableColumn fx:id="nomp" prefWidth="75.0" text="Nom" />
+                                          <TableColumn fx:id="mail" prefWidth="75.0" text="Mail" />
+                                          <TableColumn fx:id="nbrEquipe" maxWidth="4000.0" prefWidth="60.0" text="Nbr Equipe" />
+                                          <TableColumn fx:id="nbrCompetitionp" maxWidth="6000.0" prefWidth="75.0" text="Nbr Competition" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.27817745803357313" layoutX="160.0" layoutY="87.0" orientation="VERTICAL" prefHeight="419.0" prefWidth="444.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="572.0">
+                                             <children>
+                                                <GridPane layoutX="42.0" layoutY="29.0" prefHeight="113.0" prefWidth="442.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.0" minWidth="10.0" prefWidth="66.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="105.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="112.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="104.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="63.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <Label text="Creer personne:" GridPane.columnIndex="2" GridPane.halignment="LEFT">
+                                                         <font>
+                                                            <Font name="System Bold" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label text="Prenom  " GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                                      <Label text="Nom  " GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                                      <Label text="Mail  " GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                                      <TextField fx:id="prenomNew" onKeyReleased="#toggleCreerPersonne" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                      <TextField fx:id="nomNew" onKeyReleased="#toggleCreerPersonne" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="mailNew" onKeyReleased="#toggleCreerPersonne" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                      <Button fx:id="creerPersonne" mnemonicParsing="false" onAction="#handleCreerPersonne" text="Creer" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                                   </children>
+                                                </GridPane>
+                                             </children></AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="309.0" prefWidth="442.0">
+                                             <children>
+                                                <Accordion layoutX="106.0" layoutY="100.0" prefHeight="370.0" prefWidth="442.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <panes>
+                                                    <TitledPane animated="false" text="Modifier">
+                                                         <content>
+                                                            <GridPane>
+                                                              <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="59.0" />
+                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="221.0" minWidth="10.0" prefWidth="221.0" />
+                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                              </columnConstraints>
+                                                              <rowConstraints>
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                              </rowConstraints>
+                                                               <children>
+                                                                  <Label text="Gerer Personne:" GridPane.columnIndex="1">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="13.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label text="Nom  " GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                                                  <Label text="Prenom  " GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                                                  <Label text="Mail  " GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                                                                  <Button fx:id="appliquerNom" mnemonicParsing="false" onAction="#handleChangerNomP" text="Appliquer Nom" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                                     <GridPane.margin>
+                                                                        <Insets left="5.0" />
+                                                                     </GridPane.margin>
+                                                                  </Button>
+                                                                  <Button fx:id="appliquerPrenom" mnemonicParsing="false" onAction="#handleChangerPrenomP" text="Appliquer Prenom" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                                     <GridPane.margin>
+                                                                        <Insets left="5.0" />
+                                                                     </GridPane.margin>
+                                                                  </Button>
+                                                                  <Button fx:id="appliquerMail" mnemonicParsing="false" onAction="#handleChangerMailP" text="Appliquer Mail" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                                                     <GridPane.margin>
+                                                                        <Insets left="5.0" />
+                                                                     </GridPane.margin>
+                                                                  </Button>
+                                                                  <Button fx:id="supprimerPersonne" mnemonicParsing="false" onAction="#handleSupprimerPersonne" text="Supprimer Personne" textFill="RED" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                                  <TextField fx:id="nomUpdate" onKeyReleased="#toggleNewNom" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                  <TextField fx:id="prenomUpdate" onKeyReleased="#toggleNewPrenom" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                  <TextField fx:id="mailUpdate" onKeyReleased="#toggleNewMail" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                                  <Button fx:id="mailPersonne" mnemonicParsing="false" onAction="#handleMailPersonne" text="Mail" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                                               </children>
+                                                            </GridPane>
+                                                         </content>
+                                                      </TitledPane>
+                                                    <TitledPane animated="false" text="Inscrire/Desinscrire">
+                                                         <content>
+                                                            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+                                                              <tabs>
+                                                                <Tab text="Compétitions">
+                                                                  <content>
+                                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                           <children>
+                                                                              <GridPane layoutX="84.0" layoutY="84.0" prefHeight="290.0" prefWidth="440.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                                <columnConstraints>
+                                                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                                </columnConstraints>
+                                                                                <rowConstraints>
+                                                                                  <RowConstraints maxHeight="88.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                                                                                  <RowConstraints maxHeight="219.0" minHeight="10.0" prefHeight="219.0" vgrow="SOMETIMES" />
+                                                                                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                                                                </rowConstraints>
+                                                                                 <children>
+                                                                                    <Button fx:id="inscrireCompetP" mnemonicParsing="false" onAction="#handleInscrireCompetP" text="Inscrire" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                                                    <Button fx:id="desinscrireCompetP" mnemonicParsing="false" onAction="#handleDesinscrireCompetP" text="Desinscrire" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                                                    <TableView fx:id="competDispoPersonne" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                                                                      <columns>
+                                                                                        <TableColumn fx:id="nomCDP" prefWidth="75.0" text="Competitions dispo" />
+                                                                                      </columns>
+                                                                                       <columnResizePolicy>
+                                                                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                                                       </columnResizePolicy>
+                                                                                    </TableView>
+                                                                                    <TableView fx:id="competParticipePersonne" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                                      <columns>
+                                                                                        <TableColumn fx:id="nomCPP" prefWidth="75.0" text="Compétition participé" />
+                                                                                      </columns>
+                                                                                       <columnResizePolicy>
+                                                                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                                                       </columnResizePolicy>
+                                                                                    </TableView>
+                                                                                    <Label text="Inscrire" GridPane.halignment="CENTER" />
+                                                                                    <Label text="Desinscrire" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                                                                 </children>
+                                                                              </GridPane>
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                  </content>
+                                                                </Tab>
+                                                                <Tab text="Equipes">
+                                                                  <content>
+                                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                           <children>
+                                                                              <GridPane layoutX="104.0" layoutY="86.0" prefHeight="290.0" prefWidth="440.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                                <columnConstraints>
+                                                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                                </columnConstraints>
+                                                                                <rowConstraints>
+                                                                                  <RowConstraints maxHeight="90.0" minHeight="1.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                                                                                  <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="226.0" vgrow="SOMETIMES" />
+                                                                                  <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                                                                </rowConstraints>
+                                                                                 <children>
+                                                                                    <TableView fx:id="equipeDispoPersonne" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                                                                      <columns>
+                                                                                        <TableColumn fx:id="nomEDP" prefWidth="75.0" text="Equipe dispo" />
+                                                                                      </columns>
+                                                                                       <columnResizePolicy>
+                                                                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                                                       </columnResizePolicy>
+                                                                                    </TableView>
+                                                                                    <TableView fx:id="equipeInscritePersonne" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                                      <columns>
+                                                                                        <TableColumn fx:id="nomEIP" prefWidth="75.0" text="Membre de l'equipe" />
+                                                                                      </columns>
+                                                                                       <columnResizePolicy>
+                                                                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                                                       </columnResizePolicy>
+                                                                                    </TableView>
+                                                                                    <Label text="Inscrire" GridPane.halignment="CENTER" />
+                                                                                    <Label text="Desinscrire" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                                                                    <Button fx:id="inscrireEquipeP" mnemonicParsing="false" onAction="#handleInscrireEquipeP" text="Inscrire" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                                                    <Button fx:id="desinscrireEquipeP" mnemonicParsing="false" onAction="#handleDesinscrireEquipeP" text="Desinscrire" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                                                 </children>
+                                                                              </GridPane>
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                  </content>
+                                                                </Tab>
+                                                              </tabs>
+                                                            </TabPane>
+                                                         </content>
+                                                      </TitledPane>
+                                                   </panes>
+                                                </Accordion>
+                                             </children></AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
